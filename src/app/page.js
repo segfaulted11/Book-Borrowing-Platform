@@ -3,6 +3,9 @@ import bookImg from "../../public/Essential-Books.avif"
 import Link from "next/link";
 import Marquee from "@/Components/Marquee";
 import FeaturedBooks from "@/Components/FeaturedBooks";
+import ReadersLoveUs from "@/Components/ReadersLoveUs";
+import BrowseByCategory from "@/Components/BrowseByCategory";
+import Footer from "@/Components/Footer";
 export default function Home() {
   return (
     <div>
@@ -21,7 +24,14 @@ export default function Home() {
 {/* Featured Books */}
 <FeaturedBooks/>
 
-    {/* {book.id==1||2||3||4 ? <p>{book.title}</p> : <p></p>} */}
+{/* Browse By Category */}
+<BrowseByCategory/>
+
+{/* Why Readers Love Us */}
+<ReadersLoveUs/>
+
+{/* Footer */}
+<Footer/>
 
     </div>
   );
