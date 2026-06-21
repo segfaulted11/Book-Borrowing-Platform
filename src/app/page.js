@@ -1,8 +1,28 @@
-
+import Image from "next/image";
+import bookImg from "../../public/Essential-Books.avif"
+import Link from "next/link";
+import Marquee from "@/Components/Marquee";
+import FeaturedBooks from "@/Components/FeaturedBooks";
 export default function Home() {
   return (
- <div>
-<h1 className="text-3xl text-center"></h1>
- </div>
+    <div>
+
+<div className="container flex flex-col items-center justify-center gap-4 mt-10 mx-auto bg-base-200">
+
+{/* Banner */}
+<Image src={bookImg} alt="book-img" width={500} height={200}></Image>
+<h1 className="font-bold text-3xl">Find Your Next Read</h1>
+<button className="btn btn-soft"><Link href={'/'}>Browse Now</Link></button>
+</div>
+
+{/* Marquee */}
+<Marquee/>
+
+{/* Featured Books */}
+<FeaturedBooks/>
+
+    {/* {book.id==1||2||3||4 ? <p>{book.title}</p> : <p></p>} */}
+
+    </div>
   );
 }
