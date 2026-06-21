@@ -24,7 +24,7 @@ const FeaturedBooks = () => {
                   </figure>
                   <div className="card-body">
                     <h2 className="card-title">{book.title}</h2>
-                    <p>{book.description}</p>
+                    <p>By {book.author}</p>
                     <div className="card-actions justify-end">
                       <button className="btn btn-primary">
                         <Link href={`/bookdetails/${book.id}`}>View Details</Link></button>

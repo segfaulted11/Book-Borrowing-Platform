@@ -8,7 +8,7 @@ const Marqueee = () => {
       <button className="btn btn-soft font-bold text-red-500">
         New Arrivals :{" "}
       </button>
-      <Marquee pauseOnClick={true} speed={50}>
+      <Marquee pauseOnHover={true} speed={50}>
         <div className="flex gap-3 ">
           {booksData.map((book) => (
             <span key={book.id}> {book.title}</span>
