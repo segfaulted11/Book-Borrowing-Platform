@@ -1,8 +1,10 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
+import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -14,7 +16,7 @@ const RegisterPage = () => {
 email,
 password,
 name,
-photo
+image : photo
     })
 if(error){ 
     toast.error(error.message);
@@ -28,6 +30,7 @@ router.push("/login")
     handleSubmit,
     formState: { errors },
   } = useForm();
+    const [showPassword, setShowPassword] = useState(true);
   return (
     <div className="bg-base-100 container mx-auto flex justify-center items-center min-h-[80vh]">
       <div className="bg-base-300 rounded-xl flex flex-col p-5 gap-5">
@@ -74,15 +77,30 @@ router.push("/login")
               <span className="text-red-500">This field is required</span>
             )}
           </fieldset>
-          <fieldset className="fieldset">
-            <legend className="fieldset-legend">What is your password?</legend>
+          <fieldset className="fieldset relative">
+            <div className="flex justify-between">
+              <legend className="fieldset-legend">
+                What is your password?
+              </legend>
+<div
+  className="absolute right-2 top-12  z-50"
+  onClick={() => {
+    setShowPassword((prev) => !prev);
+  }}
+>
+  {showPassword ? <EyeOff /> : <Eye />}
+</div>
+
+            </div>
+
             <input
-              type="password"
+              type={showPassword ? "password" : "text"}
               name="password"
               className="input"
               placeholder="Type Your password"
               {...register("password", { required: true })}
             />
+
             {errors.password && (
               <span className="text-red-500">This field is required</span>
             )}
@@ -91,9 +109,9 @@ router.push("/login")
             Register
           </button>
         </form>
-        <p>
+        <p className="text-center">
           Already Have An Account?{" "}
-          <Link className="text-red-500 underline" href={"/login"}>
+          <Link className="text-red-500 font-bold underline" href={"/login"}>
             Login
           </Link>
         </p>

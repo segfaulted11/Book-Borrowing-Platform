@@ -1,6 +1,8 @@
+
 import { LibraryBig, Lock, ZapIcon } from "lucide-react";
 
 const ReadersLoveUs = () => {
+
     return (
         <div  className='my-5'>
 <h1 className="text-center text-3xl font-bold">⭐ Why Readers Love Us</h1>
