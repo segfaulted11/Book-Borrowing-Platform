@@ -1,7 +1,7 @@
 import Marquee from "react-fast-marquee";
 import booksData from "../data/booksData.json";
 const Marqueee = () => {
-  console.log(booksData); //array of objects
+  // console.log(booksData); //array of objects
 
   return (
     <div className="bg-olive-600 flex gap-3">
