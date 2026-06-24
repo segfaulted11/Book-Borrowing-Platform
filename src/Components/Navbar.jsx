@@ -56,7 +56,7 @@ const Navbar = () => {
             <Link href={"/allbooks"}>All Books</Link>
           </li>
           <li>
-            <Link href={"/"}>My Profile</Link>
+            <Link href={"/myprofile"}>My Profile</Link>
           </li>
         </ul>
       </div>
@@ -65,7 +65,7 @@ const Navbar = () => {
         <span className="loading loading-spinner loading-xl"></span>
       ) : getUser ? (
         <div className="navbar-end">
-          Hi, {getUser.name} and {getUser.email}!
+          Hi, {getUser.name}!
           <Image src={getUser.image} alt="" width={50} height={50}></Image>
           <Link href={"/login"} className="btn" onClick={handleLogout}>
             Logout
