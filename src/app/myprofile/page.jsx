@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 const MyProfile = async() => {
     const session = await auth.api.getSession({
@@ -40,6 +41,12 @@ if (!session) {
   <p>
     <strong>User ID:</strong> {session.user.id}
   </p>
+
+<Link href="/myprofile/update-profile">
+  <button className="btn btn-primary mt-5">
+    Update Information
+  </button>
+</Link>
 
 </div>
     );
