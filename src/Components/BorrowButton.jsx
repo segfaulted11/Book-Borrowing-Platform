@@ -9,13 +9,7 @@ const BorrowButton = () => {
   return (
     <button
       onClick={handleBorrow}
-      className="
-        btn btn-primary mt-3
-        w-full sm:w-auto
-        text-sm sm:text-base
-        px-4 sm:px-6
-      "
-    >
+className="btn btn-primary mt-3 w-full sm:w-auto text-sm sm:text-base px-4">
       Borrow This Book
     </button>
   );
