@@ -2,7 +2,7 @@ import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer flex flex-col md:flex-row justify-between gap-8 bg-neutral text-neutral-content p-6 md:p-10">
+    <footer className="footer flex flex-col md:flex-row justify-between gap-8 bg-neutral-800 text-black p-6 md:p-10">
 
       {/* Left Section */}
       <aside className="text-center md:text-left">
