@@ -3,7 +3,7 @@ import booksData from "../data/booksData.json";
 
 const Marqueee = () => {
   return (
-    <div className="bg-neutral-800 flex items-center gap-2 md:gap-4 px-3 md:px-4 py-2 overflow-hidden">
+    <div className="bg-neutral-800 text-white mt-5 flex items-center gap-10 md:gap-4 px-3 md:px-4 py-2 overflow-hidden">
       <button className="btn btn-soft btn-sm md:btn-md font-bold text-red-500 whitespace-nowrap shrink-0">
         New Arrivals:
       </button>
