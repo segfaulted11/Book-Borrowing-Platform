@@ -1,7 +1,7 @@
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import UpdateProfileForm from "@/components/UpdateProfileForm";
+import UpdateProfileForm from "@/Components/UpdateProfileForm";
 
 export default async function UpdateProfilePage() {
 
