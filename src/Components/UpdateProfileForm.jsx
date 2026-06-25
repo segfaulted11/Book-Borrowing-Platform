@@ -30,7 +30,7 @@ const UpdateProfileForm = ({ user }) => {
 
   return (
     <div className="max-w-lg mx-auto mt-6 md:mt-10 px-4">
-      <div className="bg-base-100 rounded-lg shadow-sm p-5 md:p-8">
+      <div className="bg-neutral-800 text-black rounded-lg shadow-sm p-5 md:p-8">
         
         <h2 className="text-2xl md:text-3xl font-bold mb-5 text-center md:text-left">
           Update Profile

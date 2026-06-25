@@ -23,7 +23,7 @@ const BookDetailsPage = async ({ params }) => {
           <div key={book.id}>
             {" "}
             {book.id === parseInt(bookId) ? (
-              <div className="card bg-base-100 w-100 shadow-sm ">
+              <div className="card bg-neutral-800 text-black w-100 shadow-sm ">
                 {" "}
                 <figure>
                   {" "}

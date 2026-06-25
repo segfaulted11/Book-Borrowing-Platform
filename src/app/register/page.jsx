@@ -40,7 +40,7 @@ const RegisterPage = () => {
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-4 py-8">
 
-      <div className="w-full max-w-md bg-base-300 rounded-xl p-6 sm:p-8 shadow-md">
+      <div className="w-full max-w-md bg-neutral-800 text-neutral-content  rounded-xl p-6 sm:p-8 shadow-md">
 
         <h2 className="font-bold text-2xl sm:text-3xl text-center mb-6">
           Register Your Account
@@ -56,7 +56,7 @@ const RegisterPage = () => {
 
             <input
               type="text"
-              className="input input-bordered w-full"
+              className="input input-bordered text-black w-full"
               placeholder="Enter your name"
               {...register("name", { required: true })}
             />
@@ -76,7 +76,7 @@ const RegisterPage = () => {
 
             <input
               type="text"
-              className="input input-bordered w-full"
+              className="input input-bordered text-black w-full"
               placeholder="Enter photo URL"
               {...register("photo", { required: true })}
             />
@@ -96,7 +96,7 @@ const RegisterPage = () => {
 
             <input
               type="email"
-              className="input input-bordered w-full"
+              className="input input-bordered text-black w-full"
               placeholder="Enter your email"
               {...register("email", { required: true })}
             />
@@ -117,7 +117,7 @@ const RegisterPage = () => {
             <div className="relative">
               <input
                 type={showPassword ? "password" : "text"}
-                className="input input-bordered w-full pr-10"
+                className="input input-bordered text-black w-full pr-10"
                 placeholder="Enter password"
                 {...register("password", { required: true })}
               />

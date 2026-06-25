@@ -6,7 +6,7 @@ import bookImg from "../../public/Essential-Books.avif";
 const Banner = () => {
     return (
         <div className="container mx-auto mt-6 md:mt-10 px-4">
-            <div className="flex flex-col items-center justify-center gap-4 md:gap-6 bg-base-200 rounded-lg py-8 md:py-12 lg:py-16">
+            <div className="flex flex-col items-center justify-center gap-4 md:gap-6 bg-neutral text-neutral-content rounded-lg py-8 md:py-12 lg:py-16">
                 
                 <Image
                     src={bookImg}

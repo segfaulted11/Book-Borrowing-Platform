@@ -45,7 +45,7 @@ const LoginPage = () => {
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-4 py-8">
 
-      <div className="w-full max-w-md bg-base-300 rounded-xl p-6 sm:p-8 shadow-md">
+      <div className="w-full max-w-md bg-neutral-800 text-neutral-content rounded-xl p-6 sm:p-8 shadow-md">
 
         <h2 className="font-bold text-2xl sm:text-3xl text-center mb-6">
           Login Your Account
@@ -61,7 +61,7 @@ const LoginPage = () => {
 
             <input
               type="email"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full text-black"
               placeholder="Enter your email"
               {...register("email", { required: true })}
             />
@@ -82,7 +82,7 @@ const LoginPage = () => {
             <div className="relative">
               <input
                 type={showPassword ? "password" : "text"}
-                className="input input-bordered w-full pr-10"
+                className="input text-black input-bordered w-full pr-10"
                 placeholder="Enter your password"
                 {...register("password", { required: true })}
               />

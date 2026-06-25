@@ -47,7 +47,7 @@ const FeaturedBooks = () => {
         >
           {featuredBooks.map((book) => (
             <SwiperSlide key={book.id}>
-              <div className="card bg-base-100 shadow-sm h-full flex flex-col">
+              <div className="card bg-neutral-800 text-neutral-content shadow-sm h-full flex flex-col">
 
                 <figure className="px-4 pt-4">
                   <Image

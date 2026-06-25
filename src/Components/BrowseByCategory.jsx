@@ -11,7 +11,7 @@ const BrowseByCategory = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-6 p-4 rounded-lg">
 
-                <div className="bg-base-100 p-6 md:p-8 lg:p-10 rounded-lg shadow-sm">
+                <div className="bg-neutral-800 text-neutral-content p-6 md:p-8 lg:p-10 rounded-lg shadow-sm">
                     <div className="flex flex-col gap-3 items-center text-center">
                         <BookOpenText size={40} />
                         <h4 className="font-bold text-2xl md:text-3xl">
@@ -23,7 +23,7 @@ const BrowseByCategory = () => {
                     </div>
                 </div>
 
-                <div className="bg-base-100 p-6 md:p-8 lg:p-10 rounded-lg shadow-sm">
+                <div className="bg-neutral-800 text-neutral-content p-6 md:p-8 lg:p-10 rounded-lg shadow-sm">
                     <div className="flex flex-col gap-3 items-center text-center">
                         <Laptop size={40} />
                         <h4 className="font-bold text-2xl md:text-3xl">
@@ -35,7 +35,7 @@ const BrowseByCategory = () => {
                     </div>
                 </div>
 
-                <div className="bg-base-100 p-6 md:p-8 lg:p-10 rounded-lg shadow-sm">
+                <div className="bg-neutral-800 text-neutral-content p-6 md:p-8 lg:p-10 rounded-lg shadow-sm">
                     <div className="flex flex-col gap-3 items-center text-center">
                         <Microscope size={40} />
                         <h4 className="font-bold text-2xl md:text-3xl">

@@ -18,7 +18,7 @@ const MyProfile = async () => {
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-4 py-8">
 
-      <div className="w-full max-w-md bg-base-100 shadow-md rounded-xl p-6 sm:p-8">
+      <div className="w-full max-w-md bg-neutral-800 text-black shadow-md rounded-xl p-6 sm:p-8">
 
         <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6">
           My Profile

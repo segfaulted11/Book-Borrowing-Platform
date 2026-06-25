@@ -37,7 +37,7 @@ const AllBooksPage = () => {
 
       {/* Search */}
       <div className="mb-6">
-        <label className="input input-bordered flex items-center gap-2 w-full">
+        <label className="input bg-neutral-800 text-black input-bordered flex items-center gap-2 w-full">
           <Search size={18} />
           <input
             type="search"
@@ -52,7 +52,7 @@ const AllBooksPage = () => {
       <div className="flex flex-col lg:flex-row gap-6">
 
         {/* Sidebar */}
-        <aside className="w-full lg:w-56 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2">
+        <aside className="w-full lg:w-56 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 ">
 
           <h2 className="font-bold text-lg md:text-xl mr-2 lg:mr-0 lg:mb-2 whitespace-nowrap">
             Categories
@@ -78,7 +78,7 @@ const AllBooksPage = () => {
           {finalBooks.map((book) => (
             <div
               key={book.id}
-              className="card bg-base-100 shadow-sm hover:shadow-md transition"
+              className="card bg-neutral-800 text-black shadow-sm hover:shadow-md transition"
             >
 
               <figure className="p-3">
