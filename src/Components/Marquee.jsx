@@ -1,17 +1,26 @@
 import Marquee from "react-fast-marquee";
 import booksData from "../data/booksData.json";
-const Marqueee = () => {
-  // console.log(booksData); //array of objects
 
+const Marqueee = () => {
   return (
-    <div className="bg-olive-600 flex gap-3">
-      <button className="btn btn-soft font-bold text-red-500">
-        New Arrivals :{" "}
+    <div className="bg-olive-600 flex items-center gap-2 md:gap-4 px-3 md:px-4 py-2 overflow-hidden">
+      <button className="btn btn-soft btn-sm md:btn-md font-bold text-red-500 whitespace-nowrap shrink-0">
+        New Arrivals:
       </button>
-      <Marquee pauseOnHover={true} speed={50}>
-        <div className="flex gap-3 ">
+
+      <Marquee
+        pauseOnHover={true}
+        speed={50}
+        className="flex-1"
+      >
+        <div className="flex gap-6 md:gap-10 text-sm md:text-base">
           {booksData.map((book) => (
-            <span key={book.id}> {book.title}</span>
+            <span
+              key={book.id}
+              className="whitespace-nowrap"
+            >
+              📖 {book.title}
+            </span>
           ))}
         </div>
       </Marquee>

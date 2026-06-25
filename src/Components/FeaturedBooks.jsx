@@ -15,22 +15,25 @@ const FeaturedBooks = () => {
   const featuredBooks = booksData.slice(0, 4);
 
   return (
-    <div className="py-10">
-      <h2 className="text-center font-bold text-3xl mb-8">
+    <div className="py-8 md:py-10 lg:py-14">
+      <h2 className="text-center font-bold text-2xl sm:text-3xl md:text-4xl mb-6 md:mb-8">
         Featured Books
       </h2>
 
       <div className="container mx-auto px-4">
-
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           navigation
           pagination={{ clickable: true }}
           autoplay={{
             delay: 3000,
+            disableOnInteraction: false,
           }}
           spaceBetween={20}
           breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
             640: {
               slidesPerView: 1,
             },
@@ -44,28 +47,30 @@ const FeaturedBooks = () => {
         >
           {featuredBooks.map((book) => (
             <SwiperSlide key={book.id}>
-              <div className="card bg-base-100 shadow-sm h-full">
+              <div className="card bg-base-100 shadow-sm h-full flex flex-col">
 
-                <figure>
+                <figure className="px-4 pt-4">
                   <Image
                     src={book.image_url}
                     alt={book.title}
                     width={200}
                     height={300}
-                    className="h-[250px] object-contain"
+className="w-full max-w-[180px] sm:max-w-[200px] h-[220px] sm:h-[250px] md:h-[280px]"
                   />
                 </figure>
 
-                <div className="card-body">
-                  <h2 className="card-title">
+                <div className="card-body flex flex-col">
+                  <h2 className="card-title text-lg md:text-xl line-clamp-2">
                     {book.title}
                   </h2>
 
-                  <p>By {book.author}</p>
+                  <p className="text-sm md:text-base">
+                    By {book.author}
+                  </p>
 
-                  <div className="card-actions justify-end">
+                  <div className="card-actions justify-end mt-auto">
                     <Link href={`/bookdetails/${book.id}`}>
-                      <button className="btn btn-primary">
+                      <button className="btn btn-primary w-full sm:w-auto">
                         View Details
                       </button>
                     </Link>
@@ -76,7 +81,6 @@ const FeaturedBooks = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-
       </div>
     </div>
   );

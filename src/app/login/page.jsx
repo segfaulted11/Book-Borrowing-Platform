@@ -11,19 +11,7 @@ import toast from "react-hot-toast";
 const LoginPage = () => {
   const router = useRouter();
 
-  const handleLogin = async (data) => {
-    const { email, password } = data;
-    const { data: res, error } = await authClient.signIn.email({
-      email,
-      password,
-    });
-    if (error) {
-      toast.error(error.message);
-      return;
-    }
-    toast.success("Your login is successful!");
-    router.push("/");
-  };
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -31,75 +19,118 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm();
 
-  //state for password toggle
-  const [showPassword, setShowPassword] = useState(true);
+  const handleLogin = async (data) => {
+    const { email, password } = data;
 
-const handleLoginWithGoogle = async () => {
-  await authClient.signIn.social({
-    provider: "google",
-  });
-};
+    const { error } = await authClient.signIn.email({
+      email,
+      password,
+    });
+
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+
+    toast.success("Login successful!");
+    router.push("/");
+  };
+
+  const handleLoginWithGoogle = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
+  };
 
   return (
-    <div className="bg-base-100 container mx-auto flex justify-center items-center min-h-[60vh]">
-      <div className="bg-base-300 rounded-xl flex flex-col p-5 gap-5">
-        <h2 className="font-bold text-3xl text-center">Login Your Account</h2>
-        <form onSubmit={handleSubmit(handleLogin)}>
-          <fieldset className="fieldset">
-            <legend className="fieldset-legend">What is your Email?</legend>
+    <div className="min-h-[70vh] flex items-center justify-center px-4 py-8">
+
+      <div className="w-full max-w-md bg-base-300 rounded-xl p-6 sm:p-8 shadow-md">
+
+        <h2 className="font-bold text-2xl sm:text-3xl text-center mb-6">
+          Login Your Account
+        </h2>
+
+        <form onSubmit={handleSubmit(handleLogin)} className="space-y-4">
+
+          {/* Email */}
+          <div>
+            <label className="label">
+              <span className="label-text">Email</span>
+            </label>
+
             <input
               type="email"
-              name="email"
-              className="input"
-              placeholder="Type Your name"
+              className="input input-bordered w-full"
+              placeholder="Enter your email"
               {...register("email", { required: true })}
             />
+
             {errors.email && (
-              <span className="text-red-500">This field is required</span>
+              <p className="text-red-500 text-sm mt-1">
+                Email is required
+              </p>
             )}
-          </fieldset>
-          <fieldset className="fieldset relative">
-            <div className="flex justify-between">
-              <legend className="fieldset-legend">
-                What is your password?
-              </legend>
-              <div
-                className="absolute right-2 top-12  z-50"
-                onClick={() => {
-                  setShowPassword((prev) => !prev);
-                }}
+          </div>
+
+          {/* Password */}
+          <div>
+            <label className="label">
+              <span className="label-text">Password</span>
+            </label>
+
+            <div className="relative">
+              <input
+                type={showPassword ? "password" : "text"}
+                className="input input-bordered w-full pr-10"
+                placeholder="Enter your password"
+                {...register("password", { required: true })}
+              />
+
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
               >
-                {showPassword ? <EyeOff /> : <Eye />}
-              </div>
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
             </div>
 
-            <input
-              type={showPassword ? "password" : "text"}
-              name="password"
-              className="input"
-              placeholder="Type Your password"
-              {...register("password", { required: true })}
-            />
-
             {errors.password && (
-              <span className="text-red-500">This field is required</span>
+              <p className="text-red-500 text-sm mt-1">
+                Password is required
+              </p>
             )}
-          </fieldset>
-          <button type="submit" className="btn my-3 w-full btn-soft">
-            Login
-          </button>
-          <button className="btn w-full btn-soft"
-          onClick={handleLoginWithGoogle}
-          >
-            Login With Google
-          </button>
+          </div>
+
+          {/* Buttons */}
+          <div className="space-y-3 pt-2">
+
+            <button type="submit" className="btn btn-primary w-full">
+              Login
+            </button>
+
+            <button
+              type="button"
+              onClick={handleLoginWithGoogle}
+              className="btn btn-outline w-full"
+            >
+              Login with Google
+            </button>
+
+          </div>
         </form>
-        <p className="text-center">
-          Dont Have An Account?
-          <Link className="text-red-500 underline font-bold" href={"/register"}>
+
+        <p className="text-center text-sm mt-6">
+          Don’t have an account?{" "}
+          <Link
+            className="text-red-500 underline font-semibold"
+            href="/register"
+          >
             Register
           </Link>
         </p>
+
       </div>
     </div>
   );

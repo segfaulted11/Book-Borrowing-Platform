@@ -7,18 +7,13 @@ import Link from "next/link";
 import { useState } from "react";
 
 const AllBooksPage = () => {
-  // State for storing search input
   const [searchText, setSearchText] = useState("");
-
-  // State for storing selected category
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // Handles search input changes
   const handleSearchOnChange = (e) => {
     setSearchText(e.target.value);
   };
 
-  // Step 1: Filter books by category
   const categoryFilteredBooks =
     selectedCategory === "All"
       ? booksData
@@ -26,126 +21,100 @@ const AllBooksPage = () => {
           (book) => book.category === selectedCategory
         );
 
-  // Step 2: Filter the category-filtered books by search text
   const finalBooks = categoryFilteredBooks.filter((book) =>
     book.title.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  return (
-    <div className="container mx-auto px-4">
+  const categories = ["All", "Story", "Tech", "Science"];
 
-      <h2 className="text-center font-bold text-3xl my-5">
+  return (
+    <div className="container mx-auto px-4 py-6">
+
+      {/* Title */}
+      <h2 className="text-center font-bold text-2xl md:text-3xl mb-6">
         All Books
       </h2>
 
-      {/* Search Bar */}
-      <label className="input my-5 w-full">
-        <Search />
-        <input
-          type="search"
-          placeholder="Search Book By Title"
-          onChange={handleSearchOnChange}
-        />
-      </label>
+      {/* Search */}
+      <div className="mb-6">
+        <label className="input input-bordered flex items-center gap-2 w-full">
+          <Search size={18} />
+          <input
+            type="search"
+            placeholder="Search Book By Title"
+            onChange={handleSearchOnChange}
+            className="w-full outline-none"
+          />
+        </label>
+      </div>
 
-      {/* Main Layout */}
-      <div className="flex gap-6">
+      {/* Layout */}
+      <div className="flex flex-col lg:flex-row gap-6">
 
-        {/* ================= Sidebar ================= */}
-        <div className="w-56 flex flex-col gap-3">
+        {/* Sidebar */}
+        <aside className="w-full lg:w-56 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2">
 
-          <h2 className="font-bold text-xl">
+          <h2 className="font-bold text-lg md:text-xl mr-2 lg:mr-0 lg:mb-2 whitespace-nowrap">
             Categories
           </h2>
 
-          <button
-            onClick={() => setSelectedCategory("All")}
-            className={`btn ${
-              selectedCategory === "All"
-                ? "btn-primary"
-                : ""
-            }`}
-          >
-            All Books
-          </button>
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`btn btn-sm lg:btn-md whitespace-nowrap ${
+                selectedCategory === cat ? "btn-primary" : ""
+              }`}
+            >
+              {cat === "All" ? "All Books" : cat}
+            </button>
+          ))}
 
-          <button
-            onClick={() => setSelectedCategory("Story")}
-            className={`btn ${
-              selectedCategory === "Story"
-                ? "btn-primary"
-                : ""
-            }`}
-          >
-            Story
-          </button>
+        </aside>
 
-          <button
-            onClick={() => setSelectedCategory("Tech")}
-            className={`btn ${
-              selectedCategory === "Tech"
-                ? "btn-primary"
-                : ""
-            }`}
-          >
-            Tech
-          </button>
-
-          <button
-            onClick={() => setSelectedCategory("Science")}
-            className={`btn ${
-              selectedCategory === "Science"
-                ? "btn-primary"
-                : ""
-            }`}
-          >
-            Science
-          </button>
-
-        </div>
-
-        {/* ================= Books Section ================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 flex-1">
+        {/* Books Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 flex-1">
 
           {finalBooks.map((book) => (
             <div
               key={book.id}
-              className="card bg-base-100 shadow-sm"
+              className="card bg-base-100 shadow-sm hover:shadow-md transition"
             >
-              <figure>
+
+              <figure className="p-3">
                 <Image
                   src={book.image_url}
                   alt={book.title}
-                  width={200}
-                  height={100}
-                  className="w-[400px] h-[400px] object-contain mx-auto"
+                  width={300}
+                  height={300}
+                  className="w-full h-[220px] sm:h-[260px] object-contain"
                 />
               </figure>
 
               <div className="card-body">
 
-                <h2 className="card-title">
+                <h2 className="card-title text-base md:text-lg line-clamp-2">
                   {book.title}
                 </h2>
 
-                <p>
+                <p className="text-sm md:text-base">
                   <strong>Category:</strong> {book.category}
                 </p>
 
-                <div className="card-actions justify-end">
+                <div className="card-actions justify-end mt-2">
                   <Link href={`/bookdetails/${book.id}`}>
-                    <button className="btn btn-primary">
+                    <button className="btn btn-primary btn-sm md:btn-md">
                       View Details
                     </button>
                   </Link>
                 </div>
 
               </div>
+
             </div>
           ))}
 
         </div>
-
       </div>
     </div>
   );
